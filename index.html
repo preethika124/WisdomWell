@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Dose of Wisdom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating background particles -->
+    <div class="floating-particles">
+        <span class="particle">Inspire</span>
+        <span class="particle">Dream</span>
+        <span class="particle">Believe</span>
+        <span class="particle">Create</span>
+        <span class="particle">Hope</span>
+        <span class="particle">Love</span>
+        <span class="particle">Grow</span>
+        <span class="particle">Shine</span>
+    </div>
+
+    <!-- Theme toggle -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+
+
+
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">Daily Dose of Wisdom</h1>
+            <p class="subtitle">Find inspiration in every moment</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Mood selector -->
+            <div class="mood-selector">
+                <label for="moodSelect" class="mood-label">How are you feeling today?</label>
+                <select id="moodSelect" class="mood-dropdown">
+                    <option value="all">All Quotes</option>
+                    <option value="motivated">Motivated</option>
+                    <option value="sad">Sad</option>
+                    <option value="creative">Creative</option>
+                    <option value="inspirational">Inspirational</option>
+                    <option value="peaceful">Peaceful</option>
+                </select>
+            </div>
+
+            <!-- Quote display area -->
+            <div class="quote-container">
+                <div class="quote-display" id="quoteDisplay">
+                    <blockquote class="quote-text" id="quoteText"></blockquote>
+                    <cite class="quote-author" id="quoteAuthor"></cite>
+                </div>
+            </div>
+
+            <!-- Control buttons -->
+            <div class="controls">
+                <button id="newQuoteBtn" class="btn btn-primary" data-ripple>
+                    New Quote
+                    <span class="btn-hint">Press N</span>
+                </button>
+                
+                <button id="saveQuoteBtn" class="btn btn-save" data-ripple>
+                    <svg class="heart-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    Save Quote
+                    <span class="btn-hint">Press S</span>
+                </button>
+                
+                <button id="favoritesToggle" class="btn btn-secondary" data-ripple>
+                    Favorites
+                    <span class="btn-hint">Press F</span>
+                </button>
+            </div>
+
+
+        </main>
+
+        <!-- Favorites sidebar -->
+        <aside class="favorites-sidebar" id="favoritesSidebar">
+            <div class="sidebar-header">
+                <h2>Favorite Quotes</h2>
+                <button id="closeFavorites" class="close-btn" aria-label="Close favorites">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="favorites-list" id="favoritesList">
+                <div class="empty-favorites">
+                    <p>No favorite quotes yet. Start saving quotes that inspire you!</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Overlay for sidebar -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    </div>
+
+    <!-- Audio element for background music -->
+    <audio id="backgroundMusic" loop>
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBzuX2+/CdSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMDKojF8N2QQAoUXrTp66hVFApGn+DyvmkQBjuK2+/AeSMD" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
