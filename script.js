@@ -379,7 +379,7 @@ class DailyQuoteGenerator {
 
   loadTheme() {
     try {
-      return localStorage.getItem('daily-quote-theme') || 'light';
+      return localStorage.getItem('daily-quote-theme') || 'dark';
     } catch (error) {
       console.warn('Could not load theme from localStorage');
       return 'light';
